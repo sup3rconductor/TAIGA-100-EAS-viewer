@@ -3,6 +3,7 @@
 #define TAIGAVIEWER_H
 
 #include <QMainWindow>
+#include "qcustomplot.h"
 
 
 
@@ -21,6 +22,7 @@ public:
 
 private:
     Ui::taigaviewer *ui;
+    QCPColorMap *MatrColorMap;
 };
 
 #endif // TAIGAVIEWER_H
