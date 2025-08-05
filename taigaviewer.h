@@ -5,7 +5,7 @@
 #include <QMainWindow>
 #include "qcustomplot.h"
 
-
+#include "autoplotbutton.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class taigaviewer; }
@@ -20,9 +20,15 @@ public:
     taigaviewer(QWidget *parent = nullptr);
     ~taigaviewer();
 
+    void SetupUI();
+
 private:
     Ui::taigaviewer *ui;
     QCPColorMap *MatrColorMap;
+    AutoPlotButton *autoBtn;
+
+private slots:
+
 };
 
 #endif // TAIGAVIEWER_H
