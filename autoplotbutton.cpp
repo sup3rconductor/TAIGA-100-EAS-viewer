@@ -28,20 +28,20 @@ void AutoPlotButton::paintEvent(QPaintEvent* ev)
     {
         //Adding background color and drawing button
         painter.setBrush(QColor(this->OnBgCol));
-        painter.drawRoundedRect(QRectF(0, 0, 40, 20), 10, 10);
+        painter.drawRoundedRect(QRectF(25, 10, 40, 20), 10, 10);
 
         //Adding main color and drawing slider
         painter.setBrush(QColor(this->OnCol));
-        painter.drawEllipse(QRectF(23, 1, 18, 18));
+        painter.drawEllipse(QRectF(48, 11, 18, 18));
     }
 
     else
     {
         painter.setBrush(QColor(this->OffBgCol));
-        painter.drawRoundedRect(QRectF(0, 0, 40, 20), 10, 10);
+        painter.drawRoundedRect(QRectF(25, 10, 40, 20), 10, 10);
 
         painter.setBrush(QColor(this->OffCol));
-        painter.drawEllipse(QRectF(2, 1, 18, 18));
+        painter.drawEllipse(QRectF(27, 11, 18, 18));
     }
 
 }
