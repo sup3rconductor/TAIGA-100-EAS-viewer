@@ -348,6 +348,9 @@
                   <pointsize>12</pointsize>
                  </font>
                 </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Primary particle energy in current event&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
@@ -385,6 +388,9 @@ color: rgba(255, 255, 255, 0);</string>
                  <font>
                   <pointsize>12</pointsize>
                  </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Zenith angle of primary particle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
@@ -424,6 +430,9 @@ color: rgba(255, 255, 255, 0);</string>
                   <pointsize>12</pointsize>
                  </font>
                 </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Azimuthal angle of primary particle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
@@ -461,6 +470,9 @@ color: rgba(255, 255, 255, 0);</string>
                  <font>
                   <pointsize>12</pointsize>
                  </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;X coordinate of EAS axle on the surface&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
@@ -500,6 +512,9 @@ color: rgba(255, 255, 255, 0);</string>
                   <pointsize>12</pointsize>
                  </font>
                 </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Y coordinate of EAS axle on the surface&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
@@ -537,6 +552,9 @@ color: rgba(255, 255, 255, 0);</string>
                  <font>
                   <pointsize>12</pointsize>
                  </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Number of CWD with response higher than 0 in current event&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
@@ -630,7 +648,7 @@ color: rgba(255, 255, 255, 0);</string>
                    <string notr="true">color: rgba(255, 255, 255, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Min. y:</string>
+                   <string>Min. x:</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -668,7 +686,7 @@ color: rgba(255, 255, 255, 0);</string>
                    <string notr="true">color: rgba(255, 255, 255, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Min. x:</string>
+                   <string>Min. y:</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -780,10 +798,18 @@ color: rgba(255, 255, 255, 0);</string>
                     <pointsize>12</pointsize>
                    </font>
                   </property>
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Minimal x value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
+color: rgba(255, 255, 255, 0);
+
+QToolTip {
+	color: rgba(0, 0, 0, 255); 
+	background-color: rgba(255, 255, 255, 255);
+}</string>
                   </property>
                   <property name="frameShape">
                    <enum>QFrame::StyledPanel</enum>
@@ -817,6 +843,9 @@ color: rgba(255, 255, 255, 0);</string>
                    <font>
                     <pointsize>12</pointsize>
                    </font>
+                  </property>
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Minimal y value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
@@ -856,6 +885,9 @@ color: rgba(255, 255, 255, 0);</string>
                     <pointsize>12</pointsize>
                    </font>
                   </property>
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Maximal x value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
@@ -893,6 +925,9 @@ color: rgba(255, 255, 255, 0);</string>
                    <font>
                     <pointsize>12</pointsize>
                    </font>
+                  </property>
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Maximal y value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
@@ -984,6 +1019,9 @@ color: rgba(255, 255, 255, 0);</string>
                   <pointsize>11</pointsize>
                  </font>
                 </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Go to previous event&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                 <property name="layoutDirection">
                  <enum>Qt::RightToLeft</enum>
                 </property>
@@ -1033,6 +1071,9 @@ QPushButton:pressed {
                   <pointsize>12</pointsize>
                  </font>
                 </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Current event number&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
@@ -1071,6 +1112,9 @@ color: rgba(255, 255, 255, 0);</string>
                   <family>Ubuntu</family>
                   <pointsize>11</pointsize>
                  </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Go to next event&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="layoutDirection">
                  <enum>Qt::RightToLeft</enum>
@@ -1156,6 +1200,9 @@ QPushButton:pressed {
                   <width>0</width>
                   <height>0</height>
                  </size>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable/Disable automatic SDF and response matrix replotting when event number is changed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="layoutDirection">
                  <enum>Qt::RightToLeft</enum>
@@ -1281,6 +1328,9 @@ QPushButton:pressed {
                   <pointsize>12</pointsize>
                  </font>
                 </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show response matrix&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
 	border: 1px solid gray;
@@ -1323,6 +1373,9 @@ QPushButton:pressed {
                   <family>Ubuntu</family>
                   <pointsize>12</pointsize>
                  </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show SDF plot&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
