@@ -12,6 +12,8 @@ void taigaviewer::SetupUI()
 
     ui->SDFgraph->xAxis->setRange(MinSDF, MaxSDFX);
     ui->SDFgraph->yAxis->setRange(MinSDF, MaxSDFY);
+    ui->SDFgraph->xAxis->rescale(true);
+    ui->SDFgraph->yAxis->rescale(true);
     ui->SDFgraph->setBackground(Qt::GlobalColor::transparent);
     ui->SDFgraph->setAttribute(Qt::WA_OpaquePaintEvent, false);
 

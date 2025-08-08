@@ -324,47 +324,6 @@
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_2">
               <item>
-               <widget class="QLabel" name="Zenith">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>110</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>350</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Primary particle energy in current event&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border: 1px solid gray;
-background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QLabel" name="PrEnergy">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -387,6 +346,50 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="font">
                  <font>
                   <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Primary particle energy in current event&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border: 1px solid gray;
+background-color: rgba(255, 255, 255, 0);
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="Zenith">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>110</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>350</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="toolTip">
@@ -395,7 +398,8 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -428,6 +432,7 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="font">
                  <font>
                   <pointsize>12</pointsize>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="toolTip">
@@ -436,7 +441,8 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -469,6 +475,7 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="font">
                  <font>
                   <pointsize>12</pointsize>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="toolTip">
@@ -477,7 +484,8 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -510,6 +518,7 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="font">
                  <font>
                   <pointsize>12</pointsize>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="toolTip">
@@ -518,7 +527,8 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -551,6 +561,7 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="font">
                  <font>
                   <pointsize>12</pointsize>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="toolTip">
@@ -559,7 +570,8 @@ color: rgba(255, 255, 255, 0);</string>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -774,7 +786,7 @@ color: rgba(255, 255, 255, 0);</string>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_4">
                 <item>
-                 <widget class="QLabel" name="MinX">
+                 <widget class="QLineEdit" name="MinX">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -793,34 +805,17 @@ color: rgba(255, 255, 255, 0);</string>
                     <height>20</height>
                    </size>
                   </property>
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="toolTip">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Minimal x value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);
-
-QToolTip {
-	color: rgba(0, 0, 0, 255); 
-	background-color: rgba(255, 255, 255, 255);
-}</string>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="text">
-                   <string/>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;
+</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="MinY">
+                 <widget class="QLineEdit" name="MinY">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -839,29 +834,16 @@ QToolTip {
                     <height>20</height>
                    </size>
                   </property>
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="toolTip">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Minimal y value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="text">
-                   <string/>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="MaxX">
+                 <widget class="QLineEdit" name="MaxX">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -880,29 +862,16 @@ color: rgba(255, 255, 255, 0);</string>
                     <height>20</height>
                    </size>
                   </property>
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="toolTip">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Maximal x value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="text">
-                   <string/>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="MaxY">
+                 <widget class="QLineEdit" name="MaxY">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -921,24 +890,11 @@ color: rgba(255, 255, 255, 0);</string>
                     <height>20</height>
                    </size>
                   </property>
-                  <property name="font">
-                   <font>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="toolTip">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Maximal y value for SDF plot&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                  </property>
                   <property name="styleSheet">
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="text">
-                   <string/>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                   </property>
                  </widget>
                 </item>
@@ -1069,6 +1025,7 @@ QPushButton:pressed {
                 <property name="font">
                  <font>
                   <pointsize>12</pointsize>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="toolTip">
@@ -1077,7 +1034,8 @@ QPushButton:pressed {
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
-color: rgba(255, 255, 255, 0);</string>
+color: rgba(255, 255, 255, 255);
+font-weight: bold;</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>

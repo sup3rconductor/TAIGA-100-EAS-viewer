@@ -3,6 +3,10 @@
 #include "autoplotbutton.h"
 
 #include <QVector>
+#include <QString>
+#include <sstream>
+#include <fstream>
+#include <string>
 
 taigaviewer::taigaviewer(QWidget *parent)
     : QMainWindow(parent)
@@ -45,54 +49,197 @@ taigaviewer::~taigaviewer()
 //Event number is stored in private taigaviewer class field
 void taigaviewer::ReadEventData()
 {
+    //Make path to SDF data
+    std::ostringstream Path;
+    Path << "E:\\TAIGA_EAS\\PostAnalysis\\EAS_" << EventNum << ".dat";
 
-}
+    //Clear vectors with SDF data
+    double distance;
+    int NumOfMuons;
 
-//Function to create SDF from data
-void taigaviewer::CreateSDF()
-{
+    for(int i = 0; i < 6; i++)
+        EASParams[i] = 0;
 
-}
+    Dist.clear();
+    NumMu.clear();
 
-//Function to create response matrix from data
-void taigaviewer::CreateMatrix()
-{
+    //Open file with SDF data and read it
+    std::ifstream SDF_file;
 
+    SDF_file.open(Path.str(), std::ios_base::in);
+    if(SDF_file.is_open())
+    {
+        SDF_file >> EASParams[0] >> EASParams[1] >> EASParams[2] >> EASParams[3] >> EASParams[4] >> EASParams[5];
+
+        while(SDF_file >> distance >> NumOfMuons)
+        {
+            Dist.push_back(distance);
+            NumMu.push_back(double(NumOfMuons));
+        }
+    }
+
+    else qDebug() << "Unable to open SDF file #" << EventNum;
+
+    SDF_file.close();
+    Path.str("");
+    Path.clear();
+
+    //Make path to matrix data
+    Path << "E:\\TAIGA_EAS\\PostAnalysis\\Matrix_" << EventNum << ".dat";
+
+    //Clear arrays with response matrix data
+    int idxX, idxY;
+    double NumPE;
+
+    for(int i = 0; i < 30; i++)
+    {
+        for(int j = 0; j < 40; j++)
+        {
+            CWDArr[i][j] = 0;
+        }
+    }
+
+    //Open file with matrix data and read it
+    std::ifstream Matrix_file;
+
+    Matrix_file.open(Path.str(), std::ios_base::in);
+    if(Matrix_file.is_open())
+    {
+        while(Matrix_file >> idxX >> idxY >> NumPE)
+            CWDArr[idxX][idxY] = NumPE;
+    }
+
+    else qDebug() << "Unable to open matrix file #" << EventNum;
+
+    Matrix_file.close();
+    Path.str("");
+    Path.clear();
 }
 
 //Function to write EAS parameters inside text labels
 void taigaviewer::SetEASParameters()
 {
-
-}
-
-//Function to setup limits on SDF plot axis values
-void taigaviewer::SetSDFLimits()
-{
-
+    ui->PrEnergy->setText(QString::number(EASParams[0]));
+    ui->Zenith->setText(QString::number(EASParams[1]));
+    ui->Azimuth->setText(QString::number(EASParams[2]));
+    ui->Xaxis->setText(QString::number(EASParams[3]));
+    ui->Yaxis->setText(QString::number(EASParams[4]));
+    ui->NumCWD->setText(QString::number(EASParams[5]));
 }
 
 //Function to switch events
 void taigaviewer::EventSwitch()
 {
+    //Checking state of autoplot button
+    //If it's on plots will change automatically when PrevEvent of NextEvent button is pressed
+    int AutoButtonState = autoBtn->GetStatus();
 
+    if(ui->PrevEvent->isChecked() && EventNum > 0)
+    {
+        EventNum--;
+        ui->EvNum->setText(QString::number(EventNum));
+
+        ReadEventData();
+
+        if(AutoButtonState == 1)
+        {
+            DrawSDF();
+            DrawMatrix();
+        }
+
+        ui->PrevEvent->setChecked(true);
+    }
+
+    if(ui->NextEvent->isChecked() && EventNum < 10000)
+    {
+        EventNum++;
+        ui->EvNum->setText(QString::number(EventNum));
+
+        ReadEventData();
+
+        if(AutoButtonState == 1)
+        {
+            DrawSDF();
+            DrawMatrix();
+        }
+
+        ui->NextEvent->setChecked(true);
+    }
+
+    ui->PrevEvent->setChecked(false);
+    ui->NextEvent->setChecked(false);
 }
 
 //Function to draw SDF on plot
 void taigaviewer::DrawSDF()
 {
+    ui->SDFgraph->clearGraphs();
+    ui->SDFgraph->addGraph();
 
+    ui->SDFgraph->graph(0)->setData(Dist, NumMu);
+    ui->SDFgraph->graph(0)->setPen(QPen(Qt::red));
+    ui->SDFgraph->graph(0)->setLineStyle(QCPGraph::lsNone);
+    ui->SDFgraph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc, 2));
+
+    ui->SDFgraph->replot();
 }
 
 //Function to draw response matrix on plot
 void taigaviewer::DrawMatrix()
 {
+    ui->RespMatr->clearGraphs();
+    ui->RespMatr->addGraph();
 
+    for(int xIndex = 0; xIndex < 30; xIndex++)
+    {
+        for(int yIndex = 0; yIndex < 40; yIndex++)
+        {
+            MatrColorMap->data()->setCell(xIndex, yIndex, CWDArr[xIndex][yIndex]);
+        }
+    }
+
+    ui->RespMatr->replot();
 }
 
 //Function to refresh plots
 void taigaviewer::RefreshPlots()
 {
+    std::string MinXVal = ui->MinX->text().toStdString();
+    std::string MinYVal = ui->MinY->text().toStdString();
+    std::string MaxXVal = ui->MaxX->text().toStdString();
+    std::string MaxYVal = ui->MaxY->text().toStdString();
+
+    if(MinXVal.find_first_not_of("0123456789") == std::string::npos)
+    {
+        qDebug() << "Minimal x value is not digit";
+    }
+
+    if(MinYVal.find_first_not_of("0123456789") == std::string::npos)
+    {
+        qDebug() << "Minimal y value is not digit";
+    }
+
+    if(MaxXVal.find_first_not_of("0123456789") == std::string::npos)
+    {
+        qDebug() << "Maximal x value is not digit";
+    }
+
+    if(MaxYVal.find_first_not_of("0123456789") == std::string::npos)
+    {
+        qDebug() << "Maximal y value is not digit";
+    }
+
+    else
+    {
+        double XMin = std::stod(MinXVal);
+        double YMin = std::stod(MinYVal);
+        double XMax = std::stod(MaxXVal);
+        double YMax = std::stod(MaxYVal);
+
+        ui->SDFgraph->xAxis->setRange(XMin, XMax);
+        ui->SDFgraph->yAxis->setRange(YMin, YMax);
+        DrawSDF();
+    }
 
 }
 

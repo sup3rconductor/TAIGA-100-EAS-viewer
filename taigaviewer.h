@@ -27,17 +27,15 @@ private:
     AutoPlotButton *autoBtn;
 
     QVector<double> Dist, NumMu;
-    int HorCWDArr[30] = {0}, VerCWDArr[40] = {0};
+    double CWDArr[30][40] = { 0 };
+    double EASParams[6];
     int EventNum = -1;
 
 protected:
     void SetupUI();
     void keyPressEvent(QKeyEvent* ev) override;
     void ReadEventData();
-    void CreateSDF();
-    void CreateMatrix();
     void SetEASParameters();
-    void SetSDFLimits();
 
 private slots:
     void EventSwitch();
