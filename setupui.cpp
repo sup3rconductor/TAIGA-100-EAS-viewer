@@ -146,4 +146,15 @@ void taigaviewer::SetupUI()
 
     //Rescale axes so the whole color map is visible
     ui->RespMatr->rescaleAxes();
+
+    //Set text to min and max x and y values linedits
+    ui->MinX->setText(QString::number(MinSDF));
+    ui->MinY->setText(QString::number(MinSDF));
+    ui->MaxX->setText(QString::number(MaxSDFX));
+    ui->MaxY->setText(QString::number(MaxSDFY));
+    ui->EvNum->setText(QString::number(0));
 }
+
+
+
+

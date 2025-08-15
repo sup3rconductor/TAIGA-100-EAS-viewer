@@ -4,6 +4,7 @@
 
 #include <QVector>
 #include <QString>
+#include <QMessageBox>
 #include <sstream>
 #include <fstream>
 #include <string>
@@ -49,6 +50,9 @@ taigaviewer::~taigaviewer()
 //Event number is stored in private taigaviewer class field
 void taigaviewer::ReadEventData()
 {
+    //Make warning message if one of the files is not opened
+    std::stringstream WarningMessage;
+
     //Make path to SDF data
     std::ostringstream Path;
     Path << "E:\\TAIGA_EAS\\PostAnalysis\\EAS_" << EventNum << ".dat";
@@ -67,7 +71,8 @@ void taigaviewer::ReadEventData()
     std::ifstream SDF_file;
 
     SDF_file.open(Path.str(), std::ios_base::in);
-    if(SDF_file.is_open())
+    bool sdf_flag = SDF_file.is_open();
+    if(sdf_flag)
     {
         SDF_file >> EASParams[0] >> EASParams[1] >> EASParams[2] >> EASParams[3] >> EASParams[4] >> EASParams[5];
 
@@ -78,7 +83,7 @@ void taigaviewer::ReadEventData()
         }
     }
 
-    else qDebug() << "Unable to open SDF file #" << EventNum;
+    //else qDebug() << "Unable to open SDF file #" << EventNum;
 
     SDF_file.close();
     Path.str("");
@@ -103,17 +108,24 @@ void taigaviewer::ReadEventData()
     std::ifstream Matrix_file;
 
     Matrix_file.open(Path.str(), std::ios_base::in);
-    if(Matrix_file.is_open())
+    bool matr_flag = Matrix_file.is_open();
+    if(matr_flag)
     {
         while(Matrix_file >> idxX >> idxY >> NumPE)
             CWDArr[idxX][idxY] = NumPE;
     }
 
-    else qDebug() << "Unable to open matrix file #" << EventNum;
-
     Matrix_file.close();
     Path.str("");
     Path.clear();
+
+    if(!sdf_flag || !matr_flag)
+    {
+        if(!sdf_flag) WarningMessage << "Unable to open SDF file №" << EventNum << std::endl;
+        if(!matr_flag) WarningMessage << "Unable to open Matrix file №" << EventNum << std::endl;
+        QMessageBox::warning(this, tr("Event manager"), tr((WarningMessage.str()).c_str()));
+        return;
+    }
 }
 
 //Function to write EAS parameters inside text labels
@@ -208,36 +220,50 @@ void taigaviewer::RefreshPlots()
     std::string MinYVal = ui->MinY->text().toStdString();
     std::string MaxXVal = ui->MaxX->text().toStdString();
     std::string MaxYVal = ui->MaxY->text().toStdString();
+    std::string EventNumber = ui->EvNum->text().toStdString();
 
-    if(MinXVal.find_first_not_of("0123456789") == std::string::npos)
+    if(MinXVal.find_first_not_of("0123456789") != std::string::npos)
     {
-        qDebug() << "Minimal x value is not digit";
+        QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Min. y' label is not digit"));
+        return;
     }
 
-    if(MinYVal.find_first_not_of("0123456789") == std::string::npos)
+    if(MinYVal.find_first_not_of("0123456789") != std::string::npos)
     {
-        qDebug() << "Minimal y value is not digit";
+        QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Min. y' label is not digit"));
+        return;
     }
 
-    if(MaxXVal.find_first_not_of("0123456789") == std::string::npos)
+    if(MaxXVal.find_first_not_of("0123456789") != std::string::npos)
     {
-        qDebug() << "Maximal x value is not digit";
+        QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Max. x' label is not digit"));
+        return;
     }
 
-    if(MaxYVal.find_first_not_of("0123456789") == std::string::npos)
+    if(MaxYVal.find_first_not_of("0123456789") != std::string::npos)
     {
-        qDebug() << "Maximal y value is not digit";
+        QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Max. y' label is not digit"));
+        return;
+    }
+
+    if(EventNumber.find_first_not_of("0123456789") != std::string::npos)
+    {
+        QMessageBox::warning(this, tr("Event manager"), tr("Value in 'Event number' label is not digit"));
+        return;
     }
 
     else
     {
-        double XMin = std::stod(MinXVal);
-        double YMin = std::stod(MinYVal);
-        double XMax = std::stod(MaxXVal);
-        double YMax = std::stod(MaxYVal);
+        double XMin = std::stod(MinXVal.c_str());
+        double YMin = std::stod(MinYVal.c_str());
+        double XMax = std::stod(MaxXVal.c_str());
+        double YMax = std::stod(MaxYVal.c_str());
+        EventNum = std::stod(EventNumber.c_str());
 
         ui->SDFgraph->xAxis->setRange(XMin, XMax);
         ui->SDFgraph->yAxis->setRange(YMin, YMax);
+
+        ReadEventData();
         DrawSDF();
     }
 

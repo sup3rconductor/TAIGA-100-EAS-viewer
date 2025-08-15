@@ -810,7 +810,10 @@ font-weight: bold;</string>
 background-color: rgba(255, 255, 255, 0);
 color: rgba(255, 255, 255, 255);
 font-weight: bold;
-</string>
+font: 12pt &quot;Ubuntu&quot;;</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
@@ -838,7 +841,11 @@ font-weight: bold;
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
 color: rgba(255, 255, 255, 255);
-font-weight: bold;</string>
+font-weight: bold;
+font: 12pt &quot;Ubuntu&quot;;</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
@@ -866,7 +873,11 @@ font-weight: bold;</string>
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
 color: rgba(255, 255, 255, 255);
-font-weight: bold;</string>
+font-weight: bold;
+font: 12pt &quot;Ubuntu&quot;;</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
@@ -894,7 +905,11 @@ font-weight: bold;</string>
                    <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
 color: rgba(255, 255, 255, 255);
-font-weight: bold;</string>
+font-weight: bold;
+font: 12pt &quot;Ubuntu&quot;;</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
@@ -1003,7 +1018,7 @@ QPushButton:pressed {
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_1">
               <item>
-               <widget class="QLabel" name="EvNum">
+               <widget class="QLineEdit" name="EvNum">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1022,26 +1037,15 @@ QPushButton:pressed {
                   <height>40</height>
                  </size>
                 </property>
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Current event number&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
                 <property name="styleSheet">
                  <string notr="true">border: 1px solid gray;
 background-color: rgba(255, 255, 255, 0);
 color: rgba(255, 255, 255, 255);
-font-weight: bold;</string>
+font-weight: bold;
+font: 20pt &quot;Ubuntu&quot;;</string>
                 </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="text">
-                 <string/>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
                 </property>
                </widget>
               </item>
