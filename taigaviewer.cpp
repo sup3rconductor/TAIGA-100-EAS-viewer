@@ -119,6 +119,7 @@ void taigaviewer::ReadEventData()
     Path.str("");
     Path.clear();
 
+
     if(!sdf_flag || !matr_flag)
     {
         if(!sdf_flag) WarningMessage << "Unable to open SDF file №" << EventNum << std::endl;
@@ -222,31 +223,31 @@ void taigaviewer::RefreshPlots()
     std::string MaxYVal = ui->MaxY->text().toStdString();
     std::string EventNumber = ui->EvNum->text().toStdString();
 
-    if(MinXVal.find_first_not_of("0123456789") != std::string::npos)
+    if(MinXVal.find_first_not_of("0123456789") != std::string::npos || MinXVal.empty())
     {
         QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Min. y' label is not digit"));
         return;
     }
 
-    if(MinYVal.find_first_not_of("0123456789") != std::string::npos)
+    if(MinYVal.find_first_not_of("0123456789") != std::string::npos || MinYVal.empty())
     {
         QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Min. y' label is not digit"));
         return;
     }
 
-    if(MaxXVal.find_first_not_of("0123456789") != std::string::npos)
+    if(MaxXVal.find_first_not_of("0123456789") != std::string::npos || MaxXVal.empty())
     {
         QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Max. x' label is not digit"));
         return;
     }
 
-    if(MaxYVal.find_first_not_of("0123456789") != std::string::npos)
+    if(MaxYVal.find_first_not_of("0123456789") != std::string::npos || MaxYVal.empty())
     {
         QMessageBox::warning(this, tr("Plot range manager"), tr("Value in 'Max. y' label is not digit"));
         return;
     }
 
-    if(EventNumber.find_first_not_of("0123456789") != std::string::npos)
+    if(EventNumber.find_first_not_of("0123456789") != std::string::npos || EventNumber.empty())
     {
         QMessageBox::warning(this, tr("Event manager"), tr("Value in 'Event number' label is not digit"));
         return;
